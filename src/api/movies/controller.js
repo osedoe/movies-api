@@ -5,10 +5,8 @@ function getMovies(req, res) {
   res.json(movies);
 }
 
-function getMovie(req, res) {
-  const movieId = req.params.id;
-  const movie = movies.find(movie => movie.id === movieId);
-  res.json(movie);
+function getMovie(id) {
+  return movies.find(movie => movie.id === id);
 }
 
 function getLike(req, res) {
