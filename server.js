@@ -1,11 +1,11 @@
 const express = require('express');
-const app = express();
 const moviesRouter = require('./src/api/movies');
 const morgan = require('morgan');
 const port = 3000;
 
-app.use(express.json());
+const app = express();
 
+app.use(express.json());
 app.use(morgan('combined'));
 
 app.get('/', (req, res) => {

@@ -1,1 +1,10 @@
-[{"id":"1","name":"Matrix"},{"id":"2","name":"El club de la lucha"},{"name":"Memento","id":"3"}]
+[{
+  "id": "1",
+  "name": "Matrix"
+}, {
+  "id": "2",
+  "name": "El club de la lucha"
+}, {
+  "name": "Memento",
+  "id": "3"
+}]

@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const controller = require('./controller');
+require('./../../../server').default;
 
 router.get('/', (req, res) => controller.getMovies(req, res));
 router.post('/', (req, res) => controller.postMovie(req, res));
