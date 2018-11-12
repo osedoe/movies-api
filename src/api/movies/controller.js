@@ -1,19 +1,21 @@
-function getMovies() {
+const files = require('./../../utils/files');
+let movies = files.loadMovies(moviesData => movies = moviesData);
+function getMovies(req, res) {
   res.json(movies);
 }
 
-function getMovie() {
+function getMovie(req, res) {
   const movieId = req.params.id;
   const movie = movies.find(movie => movie.id === movieId);
   res.json(movie);
 }
 
-function getLike() {
+function getLike(req, res) {
   const likeMovies = movies.filter(movie => movie.like === true);
   res.json(likeMovies);
 }
 
-function postMovie() {
+function postMovie(req, res) {
   const movie = req.body;
   movie.id = `${movies.length + 1}`;
   movies.push(movie);
@@ -27,7 +29,7 @@ function postMovie() {
   });
 }
 
-function updateMovie() {
+function updateMovie(req, res) {
   const movieId = req.body.id;
   let moviePosition = movies.findIndex(movie => movie.id === movieId);
   if (moviePosition >= 0) {
@@ -43,7 +45,7 @@ function updateMovie() {
   });
 }
 
-function deleteMovie() {
+function deleteMovie(req, res) {
   const movieId = req.params.id;
   const moviePosition = movies.findIndex(movie => movie.id === movieId);
   if (moviePosition >= 0) {
@@ -59,7 +61,7 @@ function deleteMovie() {
   });
 }
 
-function deleteLike() {
+function deleteLike(req, res) {
   const movieId = req.params.id;
   const movie = movies.find(movie => movie.id === movieId);
   if (movie) {

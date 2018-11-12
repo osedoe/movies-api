@@ -1,13 +1,13 @@
 const express = require('express');
 const files = require("./src/utils/files");
-const app = express();
 const moviesRouter = require('./src/api/movies');
+const morgan = require('morgan');
 const port = 3000;
-let movies;
-files.loadMovies(moviesData => movies = moviesData);
+
+const app = express();
 
 app.use(express.json());
-
+app.use(morgan('combined'));
 app.get('/', (req, res) => {
   res.json({ message: 'Hello world' });
 });
